@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOUKO — Digital Darkness</title>
+<meta name="description" content="TOUKO — digital chaos, dark aesthetics, matrix code.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>◉</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:monospace}
+body{
+min-height:100vh;
+background:linear-gradient(120deg,#1a0000,#3a001f,#120012,#1a0000);
+background-size:400% 400%;
+animation:bg 20s ease infinite;
+color:#fff;
+overflow:hidden;
+}
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+.matrix{
+position:fixed;
+inset:0;
+pointer-events:none;
+opacity:.25;
+}
+.matrix span{
+position:absolute;
+top:-20%;
+color:#d946ef;
+animation:fall linear infinite;
+}
+@keyframes fall{
+to{transform:translateY(140vh)}
+}
+.card{
+position:relative;
+z-index:2;
+max-width:520px;
+margin:12vh auto;
+background:rgba(0,0,0,.45);
+backdrop-filter:blur(12px);
+border-radius:24px;
+padding:40px;
+text-align:center;
+box-shadow:0 0 40px rgba(217,70,239,.35);
+}
+.glitch{
+font-size:48px;
+color:#d946ef;
+position:relative;
+animation:glitch 2s infinite;
+}
+@keyframes glitch{
+0%{text-shadow:2px 0 red,-2px 0 purple}
+50%{text-shadow:-2px 0 red,2px 0 purple}
+100%{text-shadow:2px 0 red,-2px 0 purple}
+}
+.tag{
+margin:12px auto;
+display:inline-block;
+padding:6px 16px;
+border:1px solid rgba(217,70,239,.6);
+border-radius:999px;
+color:#d946ef;
+}
+.about{
+margin-top:20px;
+font-size:14px;
+line-height:1.6;
+color:#e9d5ff;
+}
+.buttons{
+margin-top:28px;
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+justify-content:center;
+}
+.buttons a{
+padding:10px 22px;
+border-radius:999px;
+background:linear-gradient(90deg,#7a0000,#3a0000);
+color:#fff;
+text-decoration:none;
+box-shadow:0 0 20px rgba(122,0,0,.6);
+transition:.3s;
+}
+.buttons a:hover{
+transform:scale(1.08);
+box-shadow:0 0 30px rgba(217,70,239,.8);
+}
+footer{
+margin-top:26px;
+font-size:12px;
+opacity:.6;
+}
+@media(max-width:600px){
+.card{margin:6vh 12px;padding:28px}
+.glitch{font-size:36px}
+}
+</style>
+</head>
+<body>
+
+<div class="matrix" id="matrix"></div>
+
+<div class="card">
+<div class="tag">◉ TOUKO</div>
+<h1 class="glitch">TOUKO</h1>
+<p>Владыка цифровой тьмы</p>
+<div class="about">
+Nazar • Sweden • 15 y.o<br>
+Programming · Digital chaos · Dark aesthetics
+</div>
+<div class="buttons">
+<a href="#">Telegram</a>
+<a href="#">GitHub</a>
+<a href="#">Channel</a>
+<a href="#">Email</a>
+</div>
+<footer>© 2025 TOUKO</footer>
+</div>
+
+<script>
+const matrix=document.getElementById("matrix");
+const chars="一二三四五六七八九十永闇血夜王影魂電脳虚無0123456789";
+for(let i=0;i<80;i++){
+const s=document.createElement("span");
+s.textContent=chars[Math.floor(Math.random()*chars.length)];
+s.style.left=Math.random()*100+"%";
+s.style.animationDuration=6+Math.random()*10+"s";
+s.style.fontSize=12+Math.random()*14+"px";
+s.style.animationDelay=Math.random()*10+"s";
+matrix.appendChild(s);
+}
+</script>
+
+</body>
+</html>
